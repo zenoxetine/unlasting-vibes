@@ -10,50 +10,117 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"> 
     <title>Unlasting Vibes</title>
     <style>
+        * {
+            cursor: none;
+        }
+
+        html {
+            height: 100%;
+            margin: 0;
+            overflow:hidden;
+        }
+
         body{
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
+            height: 100%;
         }
         
-        .lyricsContainer{
+        .lyrics-container{
             position: absolute;
             top: 47%;
             left: 50%;
             -moz-transform: translateX(-50%) translateY(-47%);
             -webkit-transform: translateX(-50%) translateY(-47%);
             transform: translateX(-50%) translateY(-47%);
-            width: 75%; 
         }
-
+        
         .lyrics{
             color: rgb(240, 240, 240);
             font-family: 'Itim', cursive;
-            text-shadow: 2px 2px 4px#000000;
+            text-shadow: 1px 1px 2px #000000;
             text-align: center;
             margin: 0;
         }
 
         @media (min-width:320px)  {
+            .lyrics-container {
+                width: 90%;
+            }
+            
+            .lyrics{
+                font-size: 30px;
+            }
+            
+            #audio-progress {
+                width: 270px;
+            }
+        }
+        
+        @media (min-width:1025px) {
+            .lyrics-container {
+                width: 75%;
+            }
+
             .lyrics{
                 font-size: 38px;
             }
-        }
-
-        @media (min-width:1025px) {
-            .lyrics{
-                font-size: 56px;
+            
+            #audio-progress {
+                width: 500px;
             }
+        }
+        
+        .timer-container {
+            position: absolute;
+            top: 72%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-72%);
+            -webkit-transform: translateX(-50%) translateY(-72%);
+            transform: translateX(-50%) translateY(-72%);
+        }
+        
+        .audio-time{
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(228, 228, 228);
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
         }
 
     </style>
 </head>
 <body>
-    <div class="lyricsContainer">
+    <canvas id="canvas"></canvas>
+    <script src="https://unpkg.com/starback@2.0.1/dist/starback.js"></script>
+    <script>
+        const starbackCanvas = document.getElementById('canvas')
+        const starback = new Starback(starbackCanvas, {
+            width: document.body.clientWidth,
+            height: document.body.clientHeight,
+            type: 'dot',
+            quantity: 35,
+            starSize: [0.5,2],
+            direction: 0,
+            starColor: 'white',
+            speed: 0.35,
+            randomOpacity: [0.5, 1],
+            backgroundColor: 'transparent'
+        })
+    </script>
+
+    <div class="lyrics-container">
         <h1 id="lyrics" class="lyrics"></h1>
     </div>
+
+    <div class="timer-container">
+        <h3 id="audio-time" class="audio-time"></h3>
+        <canvas id="audio-progress"></canvas>
+    </div>
     
-    <script src="./main.js" type="text/javascript"></script>
+    <script src="./main.js" type="module"></script>
 </body>
 </html>
