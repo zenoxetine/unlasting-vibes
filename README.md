@@ -1,3 +1,4 @@
 # unlasting-vibes
-<a href="https://wahyuandhika.github.io/unlasting-vibes/">view</a>
-<img src="https://i.ibb.co/17KpSN5/Untitled.png"/>
+<a href="https://zenoxetine.github.io/unlasting-vibes/">view</a> (audio autoplay permission is required)
+
+[<img src="https://i.ibb.co/TB3qVj7/andicry.png"/>](https://i.ibb.co/TB3qVj7/andicry.png)
